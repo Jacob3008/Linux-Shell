@@ -240,40 +240,44 @@
  /* End printPrompt and readCommand */
 
  void printHelp() {
-    printf("### cp (copy) command:\n");
-    printf("Usage: cp <source> <destination>\n");
-    printf("The 'cp' command is used to copy files or directories.\n\n");
+    printf("### C (copy) command:\n");
+    printf("Usage: C <source> <destination>\n");
+    printf("The 'C' command is used to copy files or directories.\n\n");
 
-    printf("### rm (remove) command:\n"); 
-    printf("Usage: rm <file>\n");
-    printf("The 'rm' command is used to remove files or directories.\n");
+    printf("### D (remove) command:\n"); 
+    printf("Usage: D <file>\n");
+    printf("The 'D' command is used to remove files or directories.\n");
     printf("Be careful: It permanently deletes files without moving them to trash.\n\n");
 
-    printf("### echo command:\n");
-    printf("Usage: echo <text>\n");
-    printf("The 'echo' command prints text to the terminal.\n\n");
- 
-    printf("### pwd (print working directory) command:\n");
-    printf("Usage: pwd\n");
-    printf("The 'pwd' command shows the current directory you are working in.\n\n");
+    printf("### E command:\n");
+    printf("Usage: E <text>\n");
+    printf("The 'E' command prints text to the terminal.\n\n");
 
-    printf("### ls (list) command:\n");
-    printf("Usage: ls\n");
-    printf("The 'ls' command lists files and directories in the current directory.\n\n");
+    printf("### L (list) command:\n");
+    printf("Usage: L\n");
+    printf("The 'L' command lists files and directories in the current directory.\n\n");
    
-    printf("### nano command:\n");
-    printf("Usage: nano <filename>\n");
-    printf("The 'nano' command is a simple text editor in the terminal.\n\n");
+    printf("### M command:\n");
+    printf("Usage: M <filename>\n");
+    printf("The 'M' command is a simple text editor in the terminal.\n\n");
  
-    printf("### more command:\n");
-    printf("Usage: more <file>\n");
-    printf("The 'more' command allows you to view a file's content page by page.\n\n");
+    printf("### P command:\n");
+    printf("Usage: P <file>\n");
+    printf("The 'P' command allows you to view a file's content page by page.\n\n");
 
-    printf("### clear command:\n");
-    printf("Usage: clear\n");
-    printf("The 'clear' command clears the terminal screen.\n\n");
+    printf("### Q command:\n");
+    printf("Usage: Q\n");
+    printf("The 'Q' command quits the shell.\n\n");
+
+    printf("### W command:\n");
+    printf("Usage: W\n");
+    printf("The 'W' command clears the terminal screen.\n\n");
+
+    printf("### X command:\n");
+    printf("Usage: X <program>\n");
+    printf("The 'X' command executes the named program.\n\n");
  
     printf("### man (manual) command:\n");
     printf("Usage: man <command>\n");
-    printf("The 'man' command shows the manual pages for any command.\n\n");
+    printf("The 'man' command shows the manual pages for any linux command.\n\n");
  }
