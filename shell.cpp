@@ -70,7 +70,8 @@
        readCommand(cmdLine);
        parseCommand(cmdLine, &command);
        command.argv[command.argc] = NULL;
-      
+       
+       // Check for C (copy) command
        if(strcmp(command.name, "C") == 0) {
          command.name = (char *) malloc(3 * sizeof(char));
          command.argv[0] = (char *) malloc(3 * sizeof(char));
@@ -78,13 +79,15 @@
          strcpy(command.argv[0], "cp");
        }
 
+       // Check for D (delete) command
        else if(strcmp(command.name, "D") == 0) {
          command.name = (char *) malloc(3 * sizeof(char));
          command.argv[0] = (char *) malloc(3 * sizeof(char));
          strcpy(command.name, "rm");
          strcpy(command.argv[0], "rm");
        }
-
+        
+       // Check for E (echo) command
        else if(strcmp(command.name, "E") == 0) {
          command.name = (char *) malloc(5 * sizeof(char));
          command.argv[0] = (char *) malloc(5 * sizeof(char));
@@ -92,21 +95,24 @@
          strcpy(command.argv[0], "echo");
        }
 
+       // Check for H (help) command
        else if(strcmp(command.name, "H") == 0) {
             printHelp();
        }
 
+       // Check for L (list) command
        else if(strcmp(command.name, "L") == 0) {
          printf("\n");
 
+         // print working directory
          char *pwdargs[] = {(char*)"pwd", NULL};
          if ((pid = fork()) == 0) {
             execvp("pwd", pwdargs);
          }
          wait(&status);
-
          printf("\n");
 
+         // print directory contents in long form
          command.name = (char *) malloc(3 * sizeof(char));
          command.argv[0] = (char *) malloc(3 * sizeof(char));
          command.argv[1] = (char *) malloc(3 * sizeof(char));
@@ -117,24 +123,28 @@
          command.argv[command.argc] = NULL;
        }
 
+       // Check for M (make) command
        else if(strcmp(command.name, "M") == 0) {
-         command.name = (char *) malloc(4 * sizeof(char));
-         command.argv[0] = (char *) malloc(4 * sizeof(char));
+         command.name = (char *) malloc(5 * sizeof(char));
+         command.argv[0] = (char *) malloc(5 * sizeof(char));
          strcpy(command.name, "nano");
          strcpy(command.argv[0], "nano");
        }
 
+       // Check for P (print) command
        else if(strcmp(command.name, "P") == 0) {
-         command.name = (char *) malloc(4 * sizeof(char));
-         command.argv[0] = (char *) malloc(4 * sizeof(char));
+         command.name = (char *) malloc(5 * sizeof(char));
+         command.argv[0] = (char *) malloc(5 * sizeof(char));
          strcpy(command.name, "more");
          strcpy(command.argv[0], "more");
        }
 
+       // Check for Q (quit) command
        else if(strcmp(command.name, "Q") == 0) {
          break;
        }
 
+       // Check for W (wipe) command
        else if(strcmp(command.name, "W") == 0) {
          command.name = (char *) malloc(6 * sizeof(char));
          command.argv[0] = (char *) malloc(6 * sizeof(char));
@@ -142,11 +152,13 @@
          strcpy(command.argv[0], "clear");
        }
 
+       // Check for X (execute) command
        else if(strcmp(command.name, "X") == 0) {
          command.name = (char *) malloc(2 * sizeof(char) + sizeof(command.argv[1]));
          strcpy(command.name, "./");
          strncat(command.name, command.argv[1], strlen(command.argv[1]));
 
+         // rearange argv to match new command
          for (int i = 0; i < command.argc; i++) {
             if (i == command.argc - 1) {
                command.argc--;
